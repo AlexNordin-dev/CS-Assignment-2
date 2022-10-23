@@ -70,8 +70,8 @@
                     Grid.Row="1" 
                     Padding="35 8"
                     HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
-                    Margin="201,108,0,0" 
+                    VerticalAlignment="Bottom" 
+                    Margin="20" 
                     Content="uppdatera" />
 
         </Grid>

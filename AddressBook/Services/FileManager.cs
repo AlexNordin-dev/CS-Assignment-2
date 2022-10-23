@@ -1,4 +1,5 @@
 ﻿using AddressBook.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,43 +7,37 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace AddressBook.Services
 {
     internal interface IFileManager
     {
-        public void Save(string filePath, string text);
-        public string Read(string filePath);
+        public ObservableCollection<ContactPerson> Read();
+        public void Save(ObservableCollection<ContactPerson> contacts);
     }
     internal class FileManager : IFileManager
     {
-        //private string _filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ContactPath2.Json";
-        public void Save(string filePath, string text)
+        //Contact kommer sparas på följande Path.
+        private string _filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ContactPath2.Json";
+        public ObservableCollection<ContactPerson> Read() //Läs funktion
         {
-            try
-            {
-                using var sw = new StreamWriter(filePath);
-                sw.WriteLine(text);
-            }
-            catch
-            {
-                Console.Clear();
-                Console.WriteLine("Unable to save the product catalog");
-                Console.ReadKey();
-            }
+            
+                var contacts = new ObservableCollection<ContactPerson>();
+
+                using var sr = new StreamReader(_filePath);
+                contacts = JsonConvert.DeserializeObject<ObservableCollection<ContactPerson>>(sr.ReadToEnd());
+                return contacts;
+                     
         }
 
-        public string Read(string filePath)
+        public void Save(ObservableCollection<ContactPerson> contacts) //Sparar funktion
         {
-            try
-            {
-                using var sr = new StreamReader(filePath);
-                return sr.ReadToEnd();
-            }
-            catch { }
-
-            return "[]";
+           
+                using StreamWriter sw = new StreamWriter(_filePath);
+                sw.WriteLine(JsonConvert.SerializeObject(contacts, Newtonsoft.Json.Formatting.Indented));
+                       
         }
     }
 }
