@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:AddressBook"
         mc:Ignorable="d"
         
-        Title="MainWindow" Height="450" Width="800">
+        
+        Title="MainWindow" Height="450" Width="800"
+        Style="{StaticResource MainWindow}">
+    
     <Grid>
+        <!--Appens layout-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="2*" />
@@ -44,7 +48,7 @@
 
                     <StackPanel Grid.Column="1" Margin="8 0">
                         <TextBlock Text="Postnummer" Style="{StaticResource label}" />
-                        <TextBox x:Name="tb_PostalCode" Style="{StaticResource field }" TextChanged="tb_PostalCode_TextChanged" />
+                        <TextBox x:Name="tb_PostalCode" Style="{StaticResource field }" />
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
@@ -56,7 +60,8 @@
 
 
             </StackPanel>
-
+            
+            <!--Alla knapper står här-->
             <Button x:Name="btn_Add"
                     Click="btn_Add_Click"
                     Grid.Row="1" 
@@ -73,8 +78,8 @@
                     VerticalAlignment="Bottom" 
                     Margin="20" 
                     Content="Uppdatera" 
-                    Visibility="Hidden"
-                    />
+                    Visibility="Hidden" 
+            />
             <Button x:Name="btn_clean"
                     Click="btn_clean_Click"
                     Grid.Row="1" 
@@ -88,8 +93,8 @@
 
 
 
-
-        <ListView x:Name="lv_Contacts" SelectionChanged="lv_Contacts_SelectionChanged" Grid.Column="1" Margin="20" HorizontalContentAlignment="Stretch">
+        <!--Visar kontakter-->
+        <ListView x:Name="lv_Contacts" SelectionChanged="lv_Contacts_SelectionChanged" Grid.Column="1" Margin="20" HorizontalContentAlignment="Stretch" Style="{StaticResource ViewList}">
             <ListView.ItemTemplate>
                 <DataTemplate >
                     <Grid>

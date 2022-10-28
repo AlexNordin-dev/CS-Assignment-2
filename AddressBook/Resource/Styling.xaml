@@ -8,4 +8,11 @@
         <Setter Property="Padding" Value="5" />
         <Setter Property="Margin" Value="0 0 0 10" />
     </Style>
+    <Style x:Key="MainWindow" TargetType="Window">
+        <Setter Property="Background" Value="#F2F2F2" />
+    </Style>
+
+    <Style x:Key="ViewList" TargetType="ListView">
+        <Setter Property="Background" Value="#F7F7F7" />
+    </Style>
 </ResourceDictionary>

@@ -95,8 +95,8 @@ namespace AddressBook
         {
             try
             {
-                btn_Add.Visibility = Visibility.Collapsed;
-                btn_Update.Visibility = Visibility.Visible;
+                btn_Add.Visibility = Visibility.Collapsed;  //Visa inte knappen uppdatera och ta emot inte något värde.
+                btn_Update.Visibility = Visibility.Visible; //Visa knappen Lägg till.
                 var contact = (ContactPerson)lv_Contacts.SelectedItems[0]!;
                 tb_FirstName.Text = contact.FirstName;
                 tb_LastName.Text = contact.LastName;
@@ -110,8 +110,7 @@ namespace AddressBook
         }
 
 
-        private void tb_PostalCode_TextChanged(object sender, TextChangedEventArgs e)
-        { }
+       
 
         private void btn_Update_Click(object sender, RoutedEventArgs e)
         {
@@ -128,8 +127,8 @@ namespace AddressBook
 
             lv_Contacts.Items.Refresh();
 
-            btn_Update.Visibility = Visibility.Collapsed;
-            btn_Add.Visibility = Visibility.Visible;
+            btn_Update.Visibility = Visibility.Collapsed; //Visa inte knappen uppdatera och ta emot inte något värde.
+            btn_Add.Visibility = Visibility.Visible; //Visa knappen Lägg till.
 
             _fileManager.Save(_contacts); //Spara lokalt till en JSON fil.
 
