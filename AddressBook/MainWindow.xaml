@@ -69,10 +69,20 @@
                     Click="btn_Update_Click"
                     Grid.Row="1" 
                     Padding="35 8"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom" 
+                    Margin="20" 
+                    Content="uppdatera" 
+                    Visibility="Hidden"
+                    />
+            <Button x:Name="btn_clean"
+                    Click="btn_clean_Click"
+                    Grid.Row="1" 
+                    Padding="35 8"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Bottom" 
                     Margin="20" 
-                    Content="uppdatera" />
+                    Content="Städa" />
 
         </Grid>
 

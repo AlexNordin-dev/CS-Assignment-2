@@ -19,8 +19,12 @@ namespace AddressBook.Services
     }
     internal class FileManager : IFileManager
     {
-        //Contact kommer sparas på följande Path.
+
+        //Contact kommer sparas lokalt till en JSON fil på följande Path.
         private string _filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\ContactPath2.Json";
+
+
+
         public ObservableCollection<ContactPerson> Read() //Läs funktion
         {
             
