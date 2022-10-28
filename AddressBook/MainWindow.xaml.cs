@@ -68,7 +68,7 @@ namespace AddressBook
                 MessageBox.Show("Det finns redan en kontakt med samma e-postadress.");
             }
 
-            ClearFields();
+            ClearFields();//Ta bort allt i Formuläret.
         }
 
         private void ClearFields() //Ta bort allt i Formuläret.
@@ -88,6 +88,7 @@ namespace AddressBook
 
             _contacts.Remove(contact); //Spara till listan
             _fileManager.Save(_contacts); //Spara lokalt till en JSON fil.
+            ClearFields();//Ta bort allt i Formuläret.
         }
 
         private void lv_Contacts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -132,7 +133,7 @@ namespace AddressBook
 
             _fileManager.Save(_contacts); //Spara lokalt till en JSON fil.
 
-            ClearFields();
+            ClearFields();//Ta bort allt i Formuläret.
         }
 
         private void btn_clean_Click(object sender, RoutedEventArgs e)

@@ -72,7 +72,7 @@
                     HorizontalAlignment="Right" 
                     VerticalAlignment="Bottom" 
                     Margin="20" 
-                    Content="uppdatera" 
+                    Content="Uppdatera" 
                     Visibility="Hidden"
                     />
             <Button x:Name="btn_clean"
